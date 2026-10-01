@@ -26,7 +26,7 @@
 - [x] Удалить `Assets/TutorialInfo` и `Assets/Readme.asset`
 - [x] Настроить IDE (Rider или VS Code + Unity extension)
 - [x] Установить пакеты: Netcode for GameObjects, Multiplayer Play Mode, Cinemachine
-- [ ] Первый коммит структуры
+- [x] Первый коммит структуры
 
 **Результат:** проект открывается без ошибок, пакеты установлены, IDE подсвечивает код Unity.
 
@@ -38,11 +38,13 @@
 Одиночная игра = хост без клиентов, то есть один и тот же код.
 **Как:** Netcode for GameObjects (host/client), тест двух игроков в редакторе через Multiplayer Play Mode. См. [NETWORKING.md](docs/NETWORKING.md).
 
-- [ ] Сцена `Bootstrap` с `NetworkManager`
-- [ ] Временное меню: кнопки «Host» / «Join (localhost)»
-- [ ] Префаб игрока-заглушки (капсула) спавнится для каждого подключившегося
-- [ ] Assembly Definitions (`OctopusEscape.Runtime`, `OctopusEscape.Editor`)
-- [ ] Проверено: 2 игрока в Multiplayer Play Mode видят друг друга
+- [x] Assembly Definitions `OctopusEscape.Runtime` и `OctopusEscape.Editor`
+- [x] Инструмент редактора «Octopus Escape → Save As Prefab» (обход проблемы drag & drop под Wayland)
+- [x] Временное меню `NetworkDebugMenu`: кнопки «Host» / «Join»
+- [x] Скрипт заглушки игрока `PlayerStub` (движение + цвет по ID игрока)
+- [x] Тестовая сцена `Prototype/NetworkSandbox` с `NetworkManager` (разделение на Bootstrap / меню / уровни — этап 9)
+- [x] Префаб `PlayerStub` (капсула) спавнится для каждого подключившегося
+- [x] Проверено: 2 игрока в Multiplayer Play Mode видят друг друга
 
 **Результат:** два окна редактора, каждый двигает свою капсулу, оба видят движение друг друга.
 
@@ -53,7 +55,8 @@
 **Идея:** управление осьминогом целиком (не отдельными щупальцами) — приятно и понятно.
 **Как:** ввод отделён от логики (`IOctopusInput`), движение через `Rigidbody`, камера — Cinemachine. Владелец сам двигает своего осьминога (owner authority). См. [systems/octopus.md](docs/systems/octopus.md).
 
-- [ ] Импорт модели: Rig = Generic, проверить масштаб и материалы
+- [x] Правильный экспорт из Blender (скрипт `Tools/Blender/export_fbx.py`, Bake Axis Conversion)
+- [ ] Импорт модели: Rig = Generic, масштаб ≈ 0.6 (размах около 1 м, D-006), материалы
 - [ ] Префаб `Octopus` (модель + Rigidbody + коллайдер + NetworkObject)
 - [ ] Свои Input Actions: Move, Look, Grab, Release, Camouflage, Interact
 - [ ] `OctopusInputReader` → `IOctopusInput`

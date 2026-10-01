@@ -106,6 +106,7 @@ Assets/
 │   │   ├── Objectives/ — цели и предметы побега
 │   │   └── Modes/      — GameMode, LabEscapeMode
 │   ├── UI/
+│   ├── Prototype/      — временные заглушки для проверки идей (удаляются, когда появится настоящая система)
 │   └── Editor/         — инструменты редактора (не попадают в билд)
 ├── Data/               — ScriptableObject-ассеты (конфиги, предметы)
 ├── Prefabs/
@@ -122,6 +123,7 @@ Assets/
 ## Пространства имён и сборки
 
 - Namespace повторяет папку: `OctopusEscape.Gameplay.Octopus`, `OctopusEscape.Core`.
+  Исключение: код из `Scripts/Editor` — `OctopusEscape.EditorTools`, иначе имя `Editor` конфликтует с классом `UnityEditor.Editor`.
 - Assembly Definitions (этап 1):
   - `OctopusEscape.Runtime` — весь игровой код;
   - `OctopusEscape.Editor` — `Scripts/Editor`, только для редактора;

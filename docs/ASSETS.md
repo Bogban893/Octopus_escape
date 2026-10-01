@@ -2,7 +2,23 @@
 
 ## Модель осьминога
 
-Файл: `Assets/Models/Octopus.fbx`.
+Файл: `Assets/Models/Octopus.fbx`. Исходник: `Art/Source/Octopus.blend` (Blender 5.2, хранится в LFS).
+
+Размер в метрах: примерно 1.6 × 1.6 (в размахе щупалец), высота около 0.65.
+
+### Экспорт из Blender
+
+Экспортировать **только скриптом**, чтобы настройки всегда были одинаковыми:
+
+```bash
+blender -b Art/Source/Octopus.blend --python Tools/Blender/export_fbx.py -- Assets/Models/Octopus.fbx
+```
+
+Настройки импорта в Unity (уже выставлены в `.meta`):
+- **Bake Axis Conversion: вкл.** Blender считает «верхом» ось Z, Unity — ось Y. Без этой галочки корень модели получает поворот −90°.
+- **Convert Units: вкл.**, Scale Factor 1.
+
+Типичная ошибка экспорта по умолчанию: корень с Rotation −90 и Scale 100. Если поставить такой меш отдельно в Mesh Filter, осьминог получится размером в сантиметры и будет лежать на боку.
 
 ### Скелет
 
